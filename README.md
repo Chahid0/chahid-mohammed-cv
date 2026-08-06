@@ -9,7 +9,7 @@ Site vitrine statique en **HTML / CSS / JavaScript** pur — aucune dépendance,
 Une fois GitHub Pages activé (voir plus bas), le site sera disponible à :
 
 ```
-https://<votre-nom-utilisateur>.github.io/<nom-du-repo>/
+http://chahid0.github.io/chahid-mohammed-cv/
 ```
 
 ## 📄 Contenu du site
