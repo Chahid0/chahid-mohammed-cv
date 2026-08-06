@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chahid Mohammed — Technicien en Électricité Industrielle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FFFFFF;
+    --bg-soft:#F4F8FD;
+    --card:#FFFFFF;
+    --border:#E4EBF5;
+    --navy:#0B1830;
+    --text:#1C2A3D;
+    --muted:#63728A;
+    --blue:#0B5FFF;
+    --blue-deep:#0A3FCF;
+    --blue-light:#E8F0FF;
+    --blue-glow:#CFE0FF;
+    --display:'Space Grotesk', sans-serif;
+    --body:'Inter', sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
+  }
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--body);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{ color:inherit; }
+  .wrap{ max-width:1040px; margin:0 auto; padding:0 6vw; }
+  @media (max-width:600px){ .wrap{ padding:0 22px; } }
+
+  section{ position:relative; padding:88px 0; }
+  section.soft{ background:var(--bg-soft); }
+  @media (max-width:600px){ section{ padding:56px 0; } }
+
+  /* ===== nav ===== */
+  nav{
+    position:sticky; top:0; z-index:10;
+    background:rgba(255,255,255,0.85);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--border);
+  }
+  nav .wrap{ display:flex; align-items:center; justify-content:space-between; padding:18px 6vw; }
+  .brand{ display:flex; align-items:center; gap:10px; font-family:var(--display); font-weight:700; font-size:1.05rem; color:var(--navy); }
+  .brand .bolt{
+    width:26px; height:26px; border-radius:7px;
+    background:var(--blue); color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    font-size:0.9rem;
+  }
+  .navlinks{ display:flex; gap:30px; font-size:0.88rem; color:var(--muted); }
+  .navlinks a{ text-decoration:none; transition:color 0.2s; }
+  .navlinks a:hover{ color:var(--blue); }
+  @media (max-width:640px){ .navlinks{ display:none; } }
+
+  /* ===== hero ===== */
+  .hero{ padding-top:100px; padding-bottom:80px; overflow:hidden; }
+  .hero-grid{ display:grid; grid-template-columns:1.15fr 0.85fr; gap:50px; align-items:center; }
+  @media (max-width:800px){ .hero-grid{ grid-template-columns:1fr; } }
+
+  .kicker{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:0.8rem; font-weight:600; color:var(--blue-deep);
+    background:var(--blue-light);
+    padding:7px 14px; border-radius:999px;
+    margin-bottom:26px;
+  }
+  .kicker .dot{
+    width:7px; height:7px; border-radius:50%; background:var(--blue);
+    animation:pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse{ 0%,100%{ opacity:1; } 50%{ opacity:0.35; } }
+
+  h1.hero-title{
+    font-family:var(--display);
+    font-weight:700;
+    font-size:clamp(2.4rem, 6vw, 3.6rem);
+    line-height:1.08;
+    letter-spacing:-0.01em;
+    color:var(--navy);
+  }
+  .role-line{
+    display:block;
+    width:100%;
+    text-align:center;
+    font-family:var(--display);
+    font-weight:600;
+    font-size:clamp(1.05rem, 2.6vw, 1.4rem);
+    color:var(--blue);
+    margin-top:14px;
+    letter-spacing:0.01em;
+  }
+
+  .hero-sub{ margin-top:24px; max-width:520px; color:var(--muted); font-size:1.05rem; }
+  .hero-sub strong{ color:var(--navy); font-weight:600; }
+
+  .hero-actions{ margin-top:34px; display:flex; flex-wrap:wrap; gap:14px; }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:13px 26px; border-radius:10px;
+    font-size:0.92rem; font-weight:600; text-decoration:none;
+    transition:transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .btn:hover{ transform:translateY(-2px); }
+  .btn-primary{ background:var(--blue); color:#fff; box-shadow:0 10px 24px -8px rgba(11,95,255,0.55); }
+  .btn-primary:hover{ box-shadow:0 14px 28px -8px rgba(11,95,255,0.65); }
+  .btn-ghost{ border:1px solid var(--border); color:var(--navy); background:#fff; }
+  .btn-ghost:hover{ border-color:var(--blue); }
+
+  /* ===== hero visual: voltage waveform card ===== */
+  .hero-visual{
+    position:relative;
+  }
+  .photo-frame{
+    position:relative;
+    aspect-ratio:4/5;
+    width:100%;
+    border-radius:22px;
+    overflow:hidden;
+    background:linear-gradient(160deg, var(--blue-light) 0%, #EAF1FF 60%);
+    border:1px solid var(--border);
+    box-shadow:0 24px 48px -20px rgba(11,95,255,0.28);
+  }
+  .photo-frame img{
+    width:100%; height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .photo-frame .ph-placeholder{
+    position:absolute; inset:0;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:10px; color:var(--blue-deep);
+    text-align:center; padding:20px;
+  }
+  .photo-frame .ph-placeholder .ph-icon{
+    width:56px; height:56px; border-radius:50%;
+    background:#fff; border:1px solid var(--border);
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.4rem;
+  }
+  .photo-frame .ph-placeholder .ph-text{ font-size:0.82rem; color:var(--muted); }
+  .photo-caption{
+    margin-top:16px; text-align:center;
+    font-size:0.82rem; color:var(--muted);
+  }
+  .photo-caption strong{ color:var(--navy); }
+
+  .meta-row{
+    margin-top:52px;
+    display:flex; flex-wrap:wrap; gap:36px;
+    font-size:0.82rem; color:var(--muted);
+  }
+  .meta-row div span{ display:block; color:var(--navy); font-weight:600; font-size:0.96rem; margin-top:4px; }
+
+  /* ===== section header ===== */
+  .head{ display:flex; align-items:baseline; gap:16px; margin-bottom:42px; }
+  .head .num{ font-family:var(--display); color:var(--blue); font-weight:700; font-size:0.9rem; }
+  .head h2{ font-family:var(--display); font-weight:600; font-size:clamp(1.5rem,3vw,2rem); color:var(--navy); letter-spacing:-0.01em; }
+  .head .line{ flex:1; height:1px; background:var(--border); }
+
+  /* ===== skills ===== */
+  .skills-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:14px; }
+  .skill-card{
+    background:#fff; border:1px solid var(--border); border-radius:14px;
+    padding:20px; font-size:0.94rem; font-weight:500; color:var(--navy);
+    display:flex; align-items:center; gap:12px;
+    transition:border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  }
+  .skill-card:hover{ border-color:var(--blue); transform:translateY(-3px); box-shadow:0 12px 24px -12px rgba(11,95,255,0.25); }
+  .skill-card .ic{
+    width:34px; height:34px; border-radius:9px; background:var(--blue-light); color:var(--blue-deep);
+    display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0;
+  }
+
+  /* ===== two column: tools / languages ===== */
+  .two-col{ display:grid; grid-template-columns:1fr 1fr; gap:60px; }
+  @media (max-width:700px){ .two-col{ grid-template-columns:1fr; gap:40px; } }
+  .sub-label{ font-size:0.78rem; font-weight:600; color:var(--blue-deep); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:20px; }
+  .tool-pills{ display:flex; flex-wrap:wrap; gap:10px; }
+  .pill{ padding:9px 16px; border:1px solid var(--border); border-radius:999px; font-size:0.88rem; color:var(--navy); background:#fff; }
+  .lang-item{ margin-bottom:18px; }
+  .lang-top{ display:flex; justify-content:space-between; font-size:0.92rem; margin-bottom:8px; color:var(--navy); }
+  .lang-top .level{ font-size:0.75rem; color:var(--muted); font-weight:600; }
+  .bar{ height:5px; background:var(--border); border-radius:3px; overflow:hidden; }
+  .bar > div{ height:100%; background:var(--blue); border-radius:3px; }
+
+  /* ===== timeline ===== */
+  .timeline{ display:flex; flex-direction:column; }
+  .t-item{
+    display:grid; grid-template-columns:150px 1fr; gap:28px;
+    padding:28px 0; border-top:1px solid var(--border);
+  }
+  .t-item:first-child{ border-top:none; }
+  @media (max-width:600px){ .t-item{ grid-template-columns:1fr; gap:8px; } }
+  .t-date{ font-size:0.85rem; font-weight:600; color:var(--blue); }
+  .t-title{ font-weight:700; font-size:1.05rem; color:var(--navy); margin-bottom:4px; }
+  .t-org{ color:var(--muted); font-size:0.9rem; margin-bottom:12px; }
+  .t-item ul{ list-style:none; display:flex; flex-direction:column; gap:7px; }
+  .t-item li{ font-size:0.92rem; color:var(--text); padding-left:18px; position:relative; }
+  .t-item li::before{ content:'—'; position:absolute; left:0; color:var(--blue); }
+
+  /* ===== projects ===== */
+  .panels{ display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  @media (max-width:700px){ .panels{ grid-template-columns:1fr; } }
+  .panel{ background:#fff; border:1px solid var(--border); border-radius:16px; padding:28px; }
+  .panel h4{ font-size:0.78rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--blue-deep); margin-bottom:18px; }
+  .panel ul{ list-style:none; display:flex; flex-direction:column; gap:14px; }
+  .panel li{ font-size:0.92rem; color:var(--text); padding-left:22px; position:relative; }
+  .panel li::before{ content:'⚡'; position:absolute; left:0; top:0; font-size:0.8rem; }
+
+  /* ===== interests ===== */
+  .chips{ display:flex; flex-wrap:wrap; gap:10px; }
+  .chip{ font-size:0.88rem; font-weight:500; padding:9px 18px; border-radius:999px; background:var(--blue-light); color:var(--blue-deep); }
+
+  /* footer */
+  footer{ padding:60px 0 44px; background:var(--navy); color:#fff; }
+  footer .wrap{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:24px; align-items:center; }
+  .foot-name{ font-family:var(--display); font-weight:700; font-size:1.15rem; }
+  .foot-links{ display:flex; flex-wrap:wrap; gap:22px; font-size:0.88rem; color:#B7C4DA; }
+  .foot-links a{ text-decoration:none; }
+  .foot-links a:hover{ color:#fff; }
+
+  .fade-up{ opacity:0; transform:translateY(18px); transition:opacity 0.7s ease, transform 0.7s ease; }
+  .fade-up.in{ opacity:1; transform:translateY(0); }
+
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--blue); outline-offset:3px; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand"><span class="bolt">⚡</span>Chahid Mohammed</div>
+    <div class="navlinks">
+      <a href="#competences">Compétences</a>
+      <a href="#formation">Formation</a>
+      <a href="#experience">Expérience</a>
+      <a href="#projets">Projets</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="wrap hero">
+  <div class="hero-grid" style="grid-template-columns:1fr; max-width:680px;">
+    <div>
+      <div class="kicker"><span class="dot"></span>Disponible pour une nouvelle opportunité</div>
+      <h1 class="hero-title">Chahid Mohammed</h1>
+      <span class="role-line">Électricité Industrielle</span>
+      <p class="hero-sub">
+        <strong>Technicien diplômé en Électricité Industrielle</strong> de l'ISTA Jorf Lasfar (OFPPT),
+        avec une solide expérience pratique en câblage industriel et lecture de schémas électriques.
+        Rigoureux, sérieux et motivé.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="mailto:Simochahid100@gmail.com">Me contacter</a>
+        <a class="btn btn-ghost" href="tel:+212679556171">06 79 55 61 71</a>
+      </div>
+      <div class="meta-row">
+        <div>Localisation<span>El Jadida, Maroc</span></div>
+        <div>Formation<span>ISTA Jorf Lasfar</span></div>
+        <div>Dernière expérience<span>Stagiaire, OCP</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="competences" class="wrap fade-up">
+  <div class="head"><span class="num">01</span><h2>Compétences</h2><div class="line"></div></div>
+  <div class="skills-grid">
+    <div class="skill-card"><span class="ic">⚡</span>Câblage industriel et lecture de schémas</div>
+    <div class="skill-card"><span class="ic">◧</span>Programmation API</div>
+    <div class="skill-card"><span class="ic">◍</span>Travail en équipe et collaboration</div>
+    <div class="skill-card"><span class="ic">◷</span>Gestion du temps et des priorités</div>
+    <div class="skill-card"><span class="ic">▲</span>Travail sous pression et respect des délais</div>
+  </div>
+</section>
+
+<section class="wrap fade-up soft" style="border-radius:24px;">
+  <div class="head"><span class="num">02</span><h2>Logiciels &amp; Langues</h2><div class="line"></div></div>
+  <div class="two-col">
+    <div>
+      <div class="sub-label">Logiciels maîtrisés</div>
+      <div class="tool-pills">
+        <span class="pill">Word</span>
+        <span class="pill">Excel</span>
+        <span class="pill">CADe_SIMU</span>
+      </div>
+    </div>
+    <div>
+      <div class="sub-label">Langues</div>
+      <div class="lang-item">
+        <div class="lang-top"><span>Arabe</span><span class="level">LANGUE MATERNELLE</span></div>
+        <div class="bar"><div style="width:100%"></div></div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-top"><span>Français</span><span class="level">COURANT</span></div>
+        <div class="bar"><div style="width:85%"></div></div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-top"><span>Anglais</span><span class="level">INTERMÉDIAIRE</span></div>
+        <div class="bar"><div style="width:55%"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="formation" class="wrap fade-up">
+  <div class="head"><span class="num">03</span><h2>Formation</h2><div class="line"></div></div>
+  <div class="timeline">
+    <div class="t-item">
+      <div class="t-date">2024 — 2026</div>
+      <div>
+        <div class="t-title">Diplôme de Technicien en Électricité Industrielle</div>
+        <div class="t-org">Institut Spécialisé de Technologie Appliquée (ISTA) Jorf Lasfar — OFPPT</div>
+      </div>
+    </div>
+    <div class="t-item">
+      <div class="t-date">2023 — 2024</div>
+      <div>
+        <div class="t-title">Baccalauréat en Sciences Physiques</div>
+        <div class="t-org">Lycée Moulay Abdellah</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience" class="wrap fade-up soft" style="border-radius:24px;">
+  <div class="head"><span class="num">04</span><h2>Expérience Professionnelle</h2><div class="line"></div></div>
+  <div class="timeline">
+    <div class="t-item">
+      <div class="t-date">Avril — Mai 2026</div>
+      <div>
+        <div class="t-title">Stagiaire en Maintenance Électrique Industrielle</div>
+        <div class="t-org">OCP</div>
+        <ul>
+          <li>Respect strict des normes de sécurité (HSE)</li>
+          <li>Lecture et application des schémas électriques</li>
+          <li>Maintenance préventive des équipements électriques industriels</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projets" class="wrap fade-up">
+  <div class="head"><span class="num">05</span><h2>Projets &amp; Travaux Pratiques</h2><div class="line"></div></div>
+  <div class="panels">
+    <div class="panel">
+      <h4>Travaux pratiques</h4>
+      <ul>
+        <li>Câblage d'une armoire électrique : réalisation pratique pour le démarrage direct d'un moteur asynchrone en atelier</li>
+        <li>Programmation d'automates programmables industriels (API) avec simulation via le logiciel STEP 7</li>
+        <li>Utilisation d'appareils de mesure électrique (multimètre, pince ampèremétrique) pour le diagnostic de circuits</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h4>Travaux théoriques</h4>
+      <ul>
+        <li>Étude et analyse de schémas électriques industriels (puissance et commande)</li>
+        <li>Choix des éléments de protection électrique (disjoncteurs, contacteurs, relais thermiques)</li>
+        <li>Étude des principes de fonctionnement des moteurs asynchrones et des systèmes de démarrage</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="wrap fade-up">
+  <div class="head"><span class="num">06</span><h2>Loisirs</h2><div class="line"></div></div>
+  <div class="chips">
+    <span class="chip">Nouvelles technologies</span>
+    <span class="chip">Jeux de stratégie</span>
+    <span class="chip">Esport</span>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap" style="justify-content:center;">
+    <div class="foot-name" style="text-align:center;">© 2026 Chahid Mohammed — Tous droits réservés.</div>
+  </div>
+</footer>
+
+<script>
+  const items = document.querySelectorAll('.fade-up');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  items.forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
